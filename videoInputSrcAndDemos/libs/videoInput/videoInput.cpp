@@ -25,6 +25,10 @@
 //for threading
 #include <process.h>
 
+#ifndef HEADER
+#define HEADER(pVideoInfo) (&(((VIDEOINFOHEADER *) (pVideoInfo))->bmiHeader))
+#endif
+
 // Due to a missing qedit.h in recent Platform SDKs, we've replicated the relevant contents here
 // #include <qedit.h>
 MIDL_INTERFACE("0579154A-2B53-4994-B0D0-E773148EFF85")
@@ -482,17 +486,6 @@ videoDevice::~videoDevice(){
 								(pGraph)->Release();
 								(pGraph) = 0;
 	}
-
-	//delete our pointers
-	delete pDestFilter;
-	delete pVideoInputFilter;
-	delete pGrabberF;
-	delete pGrabber;
-	delete pControl;
-	delete streamConf;
-	delete pMediaEvent;
-	delete pCaptureGraph;
-	delete pGraph;
 
 	if(verbose)printf("SETUP: Device %i disconnected and freed\n\n",myID);
 }
