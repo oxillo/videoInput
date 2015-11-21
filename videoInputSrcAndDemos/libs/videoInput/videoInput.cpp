@@ -336,7 +336,7 @@ void videoDevice::NukeDownstream(IBaseFilter *pBF){
 // ----------------------------------------------------------------------
 
 void videoDevice::destroyGraph(){
-	HRESULT hr = NULL;
+    HRESULT hr = NOERROR;
  	int FuncRetval=0;
  	int NumFilters=0;
 
@@ -403,7 +403,7 @@ videoDevice::~videoDevice(){
 		return;
 	}
 
-	HRESULT HR = NULL;
+    HRESULT HR = NOERROR;
 
 	//Stop the callback and free it
     if( (sgCallback) && (pGrabber) )
@@ -1449,7 +1449,7 @@ videoInput::~videoInput(){
 // ----------------------------------------------------------------------
 
 bool videoInput::comInit(){
-	HRESULT hr = NULL;
+    HRESULT hr = NOERROR;
 
 	//no need for us to start com more than once
 	if(comInitCount == 0 ){
@@ -1814,7 +1814,7 @@ static bool setSizeAndSubtype(videoDevice * VD, int attemptWidth, int attemptHei
 
 int videoInput::start(int deviceID, videoDevice *VD){
 
-	HRESULT hr 			= NULL;
+    HRESULT hr 			= NOERROR;
 	VD->myID 			= deviceID;
 	VD->setupStarted	= true;
     CAPTURE_MODE   		= PIN_CATEGORY_CAPTURE; //Don't worry - it ends up being preview (which is faster)
