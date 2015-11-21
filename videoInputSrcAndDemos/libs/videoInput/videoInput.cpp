@@ -29,7 +29,9 @@
 #define HEADER(pVideoInfo) (&(((VIDEOINFOHEADER *) (pVideoInfo))->bmiHeader))
 #endif
 
+#ifdef INITCOUNT_IN_CPP
 static int comInitCount = 0;
+#endif
 
 
 // Due to a missing qedit.h in recent Platform SDKs, we've replicated the relevant contents here

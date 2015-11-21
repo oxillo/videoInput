@@ -187,7 +187,9 @@ typedef _AMMediaType AM_MEDIA_TYPE;
 
 //keeps track of how many instances of VI are being used
 //don't touch
-//static int comInitCount = 0;
+#ifndef INITCOUNT_IN_CPP
+static int comInitCount = 0;
+#endif
 
 
 ////////////////////////////////////////   VIDEO DEVICE   ///////////////////////////////////
